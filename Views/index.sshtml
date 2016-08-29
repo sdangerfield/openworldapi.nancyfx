@@ -1,0 +1,22 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>$safeprojectname$</title>
+
+	<style type="text/css">
+
+		body {
+			text-align: center;
+		}
+
+	</style>
+
+</head>
+<body>
+	<img src="@Path['~/Content/nancy-logo.png']" alt="Nancy logo" /><br />
+	This view was rendered using the SuperSimpleViewEngine
+    <br /><a href="/authentication/redirect/facebook">Login with Facebook</a>
+    <input id="Button1" type="button" value="button" />
+</body>
+</html>

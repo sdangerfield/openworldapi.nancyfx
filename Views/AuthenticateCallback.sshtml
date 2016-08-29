@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Authenticate CallBack</title>
+
+	<style type="text/css">
+
+		body {
+			text-align: center;
+		}
+
+	</style>
+
+</head>
+<body>
+	<br />
+	Authenticate CallBack&nbsp;&nbsp; : Successful
+    <br />
+    <table>
+       <tr><td>Provider Name</td><td>@Model.ProviderName</td></tr>
+       <tr><td>Access Key</td><td>@Model.AuthenticatedClient.AccessToken</td></tr>
+       <tr><td>Username</td><td>@Model.AuthenticatedClient.UserInformation.UserName</td></tr>
+       <tr><td>Email</td><td>@Model.AuthenticatedClient.UserInformation.Email</td></tr>
+       <tr><td>ID</td><td>@Model.AuthenticatedClient.UserInformation.Id</td></tr>
+       <tr><td>Gender</td><td>@Model.AuthenticatedClient.UserInformation.Gender</td></tr>
+    </table>
+</body>
+</html>
