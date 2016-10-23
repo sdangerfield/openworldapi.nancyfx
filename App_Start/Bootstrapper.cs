@@ -133,7 +133,7 @@ namespace OpenworldAPI.nancyfx.AppStart
         protected void ConfigureUserSession(IKernel container) {
 
             // hostConstants.appId; hostConstants.appSecret;
-            var facebookProvider = new FacebookProvider(new ProviderParams { PublicApiKey = hostConstants.test_appId, SecretApiKey = hostConstants.test_appSecret});
+            var facebookProvider = new FacebookProvider(new ProviderParams { PublicApiKey = hostConstants.appId, SecretApiKey = hostConstants.appSecret});
             var authenticationProviderFactory = new AuthenticationProviderFactory();
             authenticationProviderFactory.AddProvider(facebookProvider);
             container.Bind<IAuthenticationCallbackProvider>().To<AuthenticationCallbackProvider>().InRequestScope();

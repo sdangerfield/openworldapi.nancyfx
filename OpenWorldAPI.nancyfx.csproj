@@ -135,12 +135,11 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\norwold\code\dev-db\DataModel\DataModel\norwold.model.csproj">
+    <ProjectReference Include="norwold.model\DataModel\norwold.model.csproj">
       <Project>{45625212-5bad-49fe-b2f4-f1bb071ff5d9}</Project>
       <Name>norwold.model</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
