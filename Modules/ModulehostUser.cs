@@ -1,6 +1,7 @@
 ﻿namespace OpenWorldAPI.nancyfx.Modules
 {
     using Nancy;
+
     using System.Collections.Generic;
     using DataModel.libHosting;
     using NHibernate;
@@ -12,13 +13,15 @@
         protected IList<hostUser> hostUserList;
         protected IList<hostUserType> hostUserTypeList;
 
+
         public ModulehostUser(ISession session)
         {
             
             this._session = session;
             hostUserList = session.QueryOver<hostUser>().List();
-            Get["/hostuser"] = parameters => { return Response.AsJson(hostUserList); };
 
+
+        Get["/hostuser"] = parameters => { return Response.AsJson(hostUserList); };
         }
 
     }

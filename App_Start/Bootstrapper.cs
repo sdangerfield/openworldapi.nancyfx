@@ -9,6 +9,7 @@ namespace OpenworldAPI.nancyfx.AppStart
 {
     using Nancy;
     using Nancy.Bootstrapper;
+    using Nancy.Conventions;
     using Ninject;
     using Nancy.Bootstrappers.Ninject;
     using FluentNHibernate.Cfg;
@@ -138,7 +139,14 @@ namespace OpenworldAPI.nancyfx.AppStart
             authenticationProviderFactory.AddProvider(facebookProvider);
             container.Bind<IAuthenticationCallbackProvider>().To<AuthenticationCallbackProvider>().InRequestScope();
         }
+
+        protected override void ConfigureConventions(NancyConventions nancyConventions)
+        {
+            base.ConfigureConventions(nancyConventions);
+            nancyConventions.StaticContentsConventions.Add(StaticContentConventionBuilder.AddDirectory("swagger-ui"));
+        }
     }
-   
+
+    
 
 }

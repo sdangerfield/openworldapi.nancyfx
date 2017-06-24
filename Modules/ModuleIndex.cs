@@ -9,6 +9,12 @@
             Get["/"] = parameters => {
                 return View["index"];
             };
+
+            Get["/swagger-ui"] = parameters =>
+            {
+                var url = $"{Request.Url.BasePath}/api-docs";
+                return View["doc", url];
+            };
         }
     }
 }
