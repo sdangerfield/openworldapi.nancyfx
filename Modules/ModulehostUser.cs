@@ -3,22 +3,22 @@
     using Nancy;
 
     using System.Collections.Generic;
-    using DataModel.libHosting;
+    using OpenWorld.Model.Hosting;
     using NHibernate;
 
     public class ModulehostUser : NancyModule
     {
 
         private readonly ISession _session;
-        protected IList<hostUser> hostUserList;
-        protected IList<hostUserType> hostUserTypeList;
+        protected IList<User> hostUserList;
+        protected IList<UserType> hostUserTypeList;
 
 
         public ModulehostUser(ISession session)
         {
             
             this._session = session;
-            hostUserList = session.QueryOver<hostUser>().List();
+            hostUserList = session.QueryOver<User>().List();
 
 
         Get["/hostuser"] = parameters => { return Response.AsJson(hostUserList); };

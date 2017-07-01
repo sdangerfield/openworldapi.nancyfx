@@ -19,16 +19,16 @@ namespace OpenworldAPI.nancyfx.AppStart
     using NHibernate.Tool.hbm2ddl;
     using Ninject.Activation;
     using Ninject.Web.Common;
-    using DataModel.libData;
-    using DataModel.libDB;
-    using DataModel.libHosting;
     using Nancy.Serialization.JsonNet;
     using Newtonsoft.Json;
     using OpenworldAPI.nancyfx.siteUtils;
     using Nancy.SimpleAuthentication;
     using SimpleAuthentication.Core;
     using SimpleAuthentication.Core.Providers;
+
     using OpenworldAPI.nancyfx.lib;
+    using OpenWorld.Model;
+    using OpenWorld.Model.Hosting;
    
  
 
@@ -110,7 +110,7 @@ namespace OpenworldAPI.nancyfx.AppStart
                             c => c.FromConnectionStringWithKey("owDbConn")))
                     .CurrentSessionContext("web")
                     .ExposeConfiguration(cfg => new SchemaUpdate(cfg).Execute(false, true))
-                    .Mappings(m => m.FluentMappings.AddFromAssemblyOf<sysBaseRuleset>())
+                    .Mappings(m => m.FluentMappings.AddFromAssemblyOf<owBaseDataType>())
                     .BuildSessionFactory();
             #endif
 
@@ -134,7 +134,7 @@ namespace OpenworldAPI.nancyfx.AppStart
         protected void ConfigureUserSession(IKernel container) {
 
             // hostConstants.appId; hostConstants.appSecret;
-            var facebookProvider = new FacebookProvider(new ProviderParams { PublicApiKey = hostConstants.appId, SecretApiKey = hostConstants.appSecret});
+            var facebookProvider = new FacebookProvider(new ProviderParams { PublicApiKey = Constants.appId, SecretApiKey = Constants.appSecret});
             var authenticationProviderFactory = new AuthenticationProviderFactory();
             authenticationProviderFactory.AddProvider(facebookProvider);
             container.Bind<IAuthenticationCallbackProvider>().To<AuthenticationCallbackProvider>().InRequestScope();

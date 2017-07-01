@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -13,13 +13,14 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>OpenworldAPI.nancyfx</RootNamespace>
     <AssemblyName>OpenworldAPI.nancyfx</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
     <UseGlobalApplicationHostFile />
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -29,6 +30,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -37,6 +39,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="FluentNHibernate">
@@ -47,8 +50,8 @@
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <Private>True</Private>
       <HintPath>packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Nancy, Version=1.4.1.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -74,27 +77,25 @@
       <HintPath>packages\Nancy.Swagger.Annotations.0.1.0-alpha3\lib\net40\Nancy.Swagger.Annotations.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>packages\Newtonsoft.Json.9.0.1\lib\net40\Newtonsoft.Json.dll</HintPath>
+      <HintPath>packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="NHibernate">
       <HintPath>packages\NHibernate.4.0.0.4000\lib\net40\NHibernate.dll</HintPath>
     </Reference>
-    <Reference Include="Ninject">
-      <HintPath>packages\Ninject.3.2.0.0\lib\net40\Ninject.dll</HintPath>
+    <Reference Include="Ninject, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>packages\Ninject.3.2.0.0\lib\net45-full\Ninject.dll</HintPath>
     </Reference>
-    <Reference Include="Ninject.Extensions.ChildKernel">
-      <HintPath>packages\Ninject.Extensions.ChildKernel.3.2.0.0\lib\net40\Ninject.Extensions.ChildKernel.dll</HintPath>
+    <Reference Include="Ninject.Extensions.ChildKernel, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>packages\Ninject.Extensions.ChildKernel.3.2.0.0\lib\net45-full\Ninject.Extensions.ChildKernel.dll</HintPath>
     </Reference>
-    <Reference Include="Ninject.Web">
-      <HintPath>packages\Ninject.Web.3.2.1.0\lib\net40-full\Ninject.Web.dll</HintPath>
+    <Reference Include="Ninject.Web, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>packages\Ninject.Web.3.2.1.0\lib\net45-full\Ninject.Web.dll</HintPath>
     </Reference>
-    <Reference Include="Ninject.Web.Common">
-      <HintPath>packages\Ninject.Web.Common.3.2.0.0\lib\net40-full\Ninject.Web.Common.dll</HintPath>
+    <Reference Include="Ninject.Web.Common, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>packages\Ninject.Web.Common.3.2.0.0\lib\net45-full\Ninject.Web.Common.dll</HintPath>
     </Reference>
     <Reference Include="RestSharp, Version=105.2.3.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>packages\RestSharp.105.2.3\lib\net4\RestSharp.dll</HintPath>
+      <HintPath>packages\RestSharp.105.2.3\lib\net452\RestSharp.dll</HintPath>
     </Reference>
     <Reference Include="SimpleAuthentication.Core, Version=0.7.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -104,11 +105,16 @@
       <HintPath>packages\Swagger.ObjectModel.0.1.0-alpha3\lib\net40\Swagger.ObjectModel.dll</HintPath>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
-    <Reference Include="WebActivatorEx">
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WebActivatorEx, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4, processorArchitecture=MSIL">
       <HintPath>packages\WebActivatorEx.2.0\lib\net40\WebActivatorEx.dll</HintPath>
     </Reference>
   </ItemGroup>
@@ -126,9 +132,9 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Start\Bootstrapper.cs" />
     <Compile Include="App_Start\NinjectWeb.cs" />
     <Compile Include="App_Start\NinjectWebCommon.cs" />
-    <Compile Include="App_Start\Bootstrapper.cs" />
     <Compile Include="Modules\ModuleIndex.cs" />
     <Compile Include="Modules\ModulehostUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -158,9 +164,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="norwold.model\DataModel\norwold.model.csproj">
-      <Project>{45625212-5bad-49fe-b2f4-f1bb071ff5d9}</Project>
-      <Name>norwold.model</Name>
+    <ProjectReference Include="openworld.model\openworld.model\OpenWorld.Model.csproj">
+      <Project>{9eb28278-a97b-484e-aa03-712e84fb8a97}</Project>
+      <Name>OpenWorld.Model</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

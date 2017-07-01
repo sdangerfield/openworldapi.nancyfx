@@ -7,8 +7,8 @@
     <ProjectGuid>{9EB28278-A97B-484E-AA03-712E84FB8A97}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>openworld.model</RootNamespace>
-    <AssemblyName>openworld.model</AssemblyName>
+    <RootNamespace>Openworld.Model</RootNamespace>
+    <AssemblyName>Openworld.Model</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -30,6 +30,27 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Brandy.Grapes, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Brandy.Grapes.1.0.5\lib\net40\Brandy.Grapes.dll</HintPath>
+    </Reference>
+    <Reference Include="Brandy.Grapes.FluentNHibernate, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Brandy.Grapes.FluentNHibernate.1.1.0\lib\net40\Brandy.Grapes.FluentNHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="Brandy.Grapes.NHibernate, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Brandy.Grapes.NHibernate.1.1.0\lib\net40\Brandy.Grapes.NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="Facebook, Version=6.0.10.0, Culture=neutral, PublicKeyToken=58cb4f2111d1e6de, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Facebook.6.8.0\lib\net45\Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="FluentNHibernate, Version=2.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\FluentNHibernate.2.0.1.0\lib\net40\FluentNHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="Iesi.Collections, Version=4.0.0.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Iesi.Collections.4.0.0.4000\lib\net40\Iesi.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate, Version=4.0.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\NHibernate.4.0.4.4000\lib\net40\NHibernate.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -40,11 +61,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="libHost\Class1.cs" />
+    <Compile Include="Core\owBaseDBConnection.cs" />
+    <Compile Include="Core\owBaseConst.cs" />
+    <Compile Include="Core\owBaseDataType.cs" />
+    <Compile Include="Core\owBaseRepository.cs" />
+    <Compile Include="Core\owBaseTree.cs" />
+    <Compile Include="Hosting\Constants.cs" />
+    <Compile Include="Hosting\Facebook.cs" />
+    <Compile Include="Hosting\UserEvent.cs" />
+    <Compile Include="Hosting\maps\UserEventMap.cs" />
+    <Compile Include="Hosting\maps\UserMap.cs" />
+    <Compile Include="Hosting\maps\UserTypeMap.cs" />
+    <Compile Include="Hosting\User.cs" />
+    <Compile Include="Hosting\UserType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="libHost\maps\" />
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
